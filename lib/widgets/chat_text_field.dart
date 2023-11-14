@@ -17,7 +17,9 @@ class ChatTextField extends StatelessWidget {
         ),
         controller: _c.textController,
         decoration: InputDecoration(
+          fillColor: CustomColors.white,
           hintText: '${Strings.askMeAnything}...',
+          filled: true,
           hintStyle: Styles.regularUbuntu13(
             CustomColors.grey,
             fontWeight: FontWeight.w500,

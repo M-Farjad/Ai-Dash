@@ -5,7 +5,11 @@ class MessageCard extends StatelessWidget {
   final Message msg;
   @override
   Widget build(BuildContext context) {
-    return msg.type == MessageType.bot ? buildBotMessage() : buildUserMessage();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child:
+          msg.type == MessageType.bot ? buildBotMessage() : buildUserMessage(),
+    );
   }
 
   Row buildBotMessage() {
