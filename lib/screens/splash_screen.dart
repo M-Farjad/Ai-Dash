@@ -11,9 +11,8 @@ class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/home');
-    });
+    Future.delayed(
+        const Duration(seconds: 3), () => Get.offNamed(Routes.onboarding));
     super.initState();
   }
 
@@ -34,7 +33,6 @@ class _SplashScreenState extends State<SplashScreen>
                 child: Image.asset(Assets.logo, width: 200, height: 200),
               ),
             ),
-            // const Spacer(),
             const CustomLoading(),
           ],
         ),

@@ -13,19 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      title: Strings.appName,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      // home: const SplashScreen(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/home': (context) => const WelcomeScreen(),
-      },
+      theme: CustomTheme.theme,
+      initialRoute: Routes.splash,
+      getPages: Pages.getPages,
     );
   }
 }
