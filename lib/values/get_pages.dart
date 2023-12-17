@@ -4,16 +4,16 @@ class Pages {
   Pages._();
   static List<GetPage<dynamic>>? getPages = [
     GetPage(
-      name: '/',
+      name: Routes.splash,
       page: () => const SplashScreen(),
     ),
     GetPage(
-      name: '/home',
+      name: Routes.home,
       page: () => const WelcomeScreen(),
     ),
     GetPage(
-      name: '/onboarding',
-      page: () => const OnboardingScreen(),
+      name: Routes.onboarding,
+      page: () => OnboardingScreen(),
     ),
   ];
 }
