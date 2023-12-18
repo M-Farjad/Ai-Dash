@@ -9,7 +9,7 @@ class Pages {
     ),
     GetPage(
       name: Routes.home,
-      page: () => const WelcomeScreen(),
+      page: () => const HomeScreen(),
     ),
     GetPage(
       name: Routes.onboarding,

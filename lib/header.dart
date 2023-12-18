@@ -5,7 +5,7 @@ export 'package:get/get.dart';
 export 'package:google_fonts/google_fonts.dart';
 
 export 'screens/splash_screen.dart';
-export 'screens/welcome_screen.dart';
+export 'screens/home_screen.dart';
 export 'screens/onboarding_screen.dart';
 
 export 'values/assets.dart';
@@ -18,3 +18,5 @@ export 'values/get_pages.dart';
 export 'values/custom_theme.dart';
 
 export '../widgets/custom_loading.dart';
+
+export 'utils/prefs.dart';

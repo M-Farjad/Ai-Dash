@@ -1,17 +1,18 @@
 import '../header.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    Prefs.showOnboarding = false;
   }
 
   @override

@@ -13,6 +13,11 @@ dependencies:
   lottie: ^2.7.0
   google_fonts: ^6.1.0
   get: ^4.6.6
+  #!for hive database
+  hive: ^4.0.0-dev.2
+  isar_flutter_libs: ^4.0.0-dev.13
+  #!for accessing storage path
+  path_provider: ^2.1.0
 
 dev_dependencies:
   flutter_test:
