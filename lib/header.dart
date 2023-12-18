@@ -20,3 +20,5 @@ export 'values/custom_theme.dart';
 export '../widgets/custom_loading.dart';
 
 export 'utils/prefs.dart';
+
+export 'models/home_type.dart';

@@ -1,4 +1,6 @@
 import '../header.dart';
+import '../models/home_type.dart';
+import '../widgets/home_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,8 +19,32 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Hello World!')),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: Text(
+          Strings.appName,
+          style: Styles.regularUbuntu18(
+            CustomColors.primaryColor,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        actions: [
+          IconButton(
+            // padding: const EdgeInsets.only(right: 10),
+            icon: const Icon(
+              Icons.brightness_4_rounded,
+              color: CustomColors.primaryColor,
+            ),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: ListView(
+        children: HomeType.values.map((e) => HomeCard(homeType: e)).toList(),
+      ),
     );
   }
 }
