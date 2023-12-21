@@ -1,5 +1,6 @@
+import 'package:ai_dash/utils/apis.dart';
+
 import '../header.dart';
-import '../models/home_type.dart';
 import '../widgets/home_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    APIs.getAnswer("What is the capital of India?");
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

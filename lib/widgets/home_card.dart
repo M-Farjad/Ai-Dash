@@ -43,6 +43,6 @@ class HomeCard extends StatelessWidget {
                 Lottie.asset(homeType.lottie, width: Get.width * 0.35),
               ],
             ),
-    );
+    ).animate().fade(duration: 1000.ms);
   }
 }
