@@ -8,6 +8,9 @@ export 'package:flutter_animate/flutter_animate.dart';
 export 'screens/splash_screen.dart';
 export 'screens/home_screen.dart';
 export 'screens/onboarding_screen.dart';
+export 'screens/chatbot_screen.dart';
+export 'screens/image_creator_screen.dart';
+export 'screens/language_translator_screen.dart';
 
 export 'values/assets.dart';
 export 'values/strings.dart';
@@ -18,9 +21,11 @@ export 'values/route_strings.dart';
 export 'values/get_pages.dart';
 export 'values/custom_theme.dart';
 
-export '../widgets/custom_loading.dart';
+export 'widgets/custom_loading.dart';
+export 'widgets/custom_appbar.dart';
 
 export 'utils/prefs.dart';
-export '../utils/apiKey.dart';
+export 'utils/apiKey.dart';
+export 'utils/apis.dart';
 
 export 'models/home_type.dart';

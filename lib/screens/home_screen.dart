@@ -1,5 +1,3 @@
-import 'package:ai_dash/utils/apis.dart';
-
 import '../header.dart';
 import '../widgets/home_card.dart';
 
@@ -20,19 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    APIs.getAnswer("What is the capital of India?");
+    // APIs.getAnswer("What is the capital of India?");
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        title: Text(
-          Strings.appName,
-          style: Styles.regularUbuntu18(
-            CustomColors.primaryColor,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        title: const Text(Strings.appName),
         actions: [
           IconButton(
             // padding: const EdgeInsets.only(right: 10),

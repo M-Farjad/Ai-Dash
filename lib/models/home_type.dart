@@ -18,4 +18,9 @@ extension MyHomeType on HomeType {
         HomeType.aiImage => false,
         HomeType.aiTranslator => true,
       };
+  VoidCallback get onTap => switch (this) {
+        HomeType.aiChatBot => () => Get.toNamed(Routes.chatBot),
+        HomeType.aiImage => () => Get.toNamed(Routes.imageCreator),
+        HomeType.aiTranslator => () => Get.toNamed(Routes.languageTranslator),
+      };
 }
