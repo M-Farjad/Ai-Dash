@@ -23,6 +23,8 @@ export 'values/custom_theme.dart';
 
 export 'widgets/custom_loading.dart';
 export 'widgets/custom_appbar.dart';
+export 'widgets/chat_text_field.dart';
+export 'widgets/message_card.dart';
 
 export 'utils/prefs.dart';
 export 'utils/apiKey.dart';

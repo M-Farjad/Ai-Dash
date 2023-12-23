@@ -20,25 +20,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         padding: EdgeInsets.symmetric(horizontal: Get.width * .02),
         child: Row(
           children: [
-            Expanded(
-              child: TextFormField(
-                onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                textAlign: TextAlign.center,
-                controller: _c.textController,
-                decoration: InputDecoration(
-                  hintText: '${Strings.askMeAnything}...',
-                  hintStyle: Styles.regularUbuntu13(
-                    CustomColors.primaryColor,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  // contentPadding: const EdgeInsets.all(0),
-                  isDense: true, //!to reduce the size of text field
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
-                  ),
-                ),
-              ),
-            ),
+            ChatTextField(),
             const SizedBox(width: 8),
             CircleAvatar(
               radius: 24,
@@ -57,7 +39,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
       ),
       body: Obx(() {
         return ListView(
-          children: _c.list.map((e) => Text(e.msg)).toList(),
+          children: _c.list.map((e) => MessageCard(msg: e)).toList(),
         );
       }),
     );
