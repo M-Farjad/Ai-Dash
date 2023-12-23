@@ -8,6 +8,7 @@ class ChatBotScreen extends StatefulWidget {
 }
 
 class _ChatBotScreenState extends State<ChatBotScreen> {
+  final _c = Get.put(ChatController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +24,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
               child: TextFormField(
                 onTapOutside: (event) => FocusScope.of(context).unfocus(),
                 textAlign: TextAlign.center,
+                controller: _c.textController,
                 decoration: InputDecoration(
                   hintText: '${Strings.askMeAnything}...',
                   hintStyle: Styles.regularUbuntu13(
@@ -42,7 +44,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
               radius: 24,
               backgroundColor: CustomColors.primaryColor,
               child: IconButton(
-                onPressed: () {},
+                onPressed: _c.sendMessage,
                 icon: const Icon(
                   Icons.rocket_launch_rounded,
                   color: CustomColors.white,
@@ -53,9 +55,11 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
           ],
         ),
       ),
-      body: ListView(
-        children: [],
-      ),
+      body: Obx(() {
+        return ListView(
+          children: _c.list.map((e) => Text(e.msg)).toList(),
+        );
+      }),
     );
   }
 }

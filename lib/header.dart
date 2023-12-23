@@ -29,3 +29,6 @@ export 'utils/apiKey.dart';
 export 'utils/apis.dart';
 
 export 'models/home_type.dart';
+export 'models/message.dart';
+
+export 'controllers/chat_controller.dart';
