@@ -16,27 +16,8 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         title: const Text(Strings.chatWithAiAssistant),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Get.width * .02),
-        child: Row(
-          children: [
-            ChatTextField(),
-            const SizedBox(width: 8),
-            CircleAvatar(
-              radius: 24,
-              backgroundColor: CustomColors.primaryColor,
-              child: IconButton(
-                onPressed: _c.sendMessage,
-                icon: const Icon(
-                  Icons.rocket_launch_rounded,
-                  color: CustomColors.white,
-                  size: 28,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+      floatingActionButton:
+          BottomTextField(controller: _c.textController, onTap: _c.sendMessage),
       body: Obx(() {
         return ListView(
           controller: _c.scrollController,

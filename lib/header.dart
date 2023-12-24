@@ -5,6 +5,7 @@ export 'package:get/get.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:animated_text_kit/animated_text_kit.dart';
+export 'package:dart_openai/dart_openai.dart';
 
 export 'screens/splash_screen.dart';
 export 'screens/home_screen.dart';
@@ -35,3 +36,5 @@ export 'models/home_type.dart';
 export 'models/message.dart';
 
 export 'controllers/chat_controller.dart';
+export 'controllers/image_controller.dart';
+export 'widgets/bottom_text_field.dart';

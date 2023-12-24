@@ -1,9 +1,9 @@
 import '../header.dart';
 
 class ChatTextField extends StatelessWidget {
-  ChatTextField({super.key});
+  const ChatTextField({super.key, required this.controller});
 
-  final ChatController _c = Get.find<ChatController>();
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ChatTextField extends StatelessWidget {
           CustomColors.primaryColor,
           fontWeight: FontWeight.w500,
         ),
-        controller: _c.textController,
+        controller: controller,
         decoration: InputDecoration(
           fillColor: CustomColors.white,
           hintText: '${Strings.askMeAnything}...',

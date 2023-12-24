@@ -40,10 +40,11 @@ class MessageCard extends StatelessWidget {
                               : CustomColors.white,
                           fontWeight: FontWeight.w500,
                         ),
-                        speed: const Duration(milliseconds: 100),
+                        speed: const Duration(milliseconds: 30),
                       ),
                     ],
-                    repeatForever: false,
+                    repeatForever:
+                        msg.msg == Strings.greetingsMessage ? false : true,
                     isRepeatingAnimation: false,
                   )
                 : Text(
