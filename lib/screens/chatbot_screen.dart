@@ -39,8 +39,9 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
       ),
       body: Obx(() {
         return ListView(
+          controller: _c.scrollController,
           physics: const BouncingScrollPhysics(),
-          padding: EdgeInsets.only(bottom: Get.height * .1),
+          padding: EdgeInsets.only(bottom: Get.height * .12),
           children: _c.list.map((e) => MessageCard(msg: e)).toList(),
         );
       }),

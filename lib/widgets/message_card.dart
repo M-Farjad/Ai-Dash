@@ -27,15 +27,34 @@ class MessageCard extends StatelessWidget {
                   : CustomColors.primaryColor,
               borderRadius: const BorderRadius.all(Radius.circular(8)),
             ),
-            child: Text(
-              msg.msg,
-              style: Styles.regularUbuntu13(
-                msg.type == MessageType.bot
-                    ? CustomColors.black
-                    : CustomColors.white,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            child: msg.msg.isEmpty || msg.msg == Strings.greetingsMessage
+                ? AnimatedTextKit(
+                    animatedTexts: [
+                      TyperAnimatedText(
+                        msg.msg == Strings.greetingsMessage
+                            ? Strings.greetingsMessage
+                            : Strings.pleaseWait,
+                        textStyle: Styles.regularUbuntu13(
+                          msg.type == MessageType.bot
+                              ? CustomColors.black
+                              : CustomColors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        speed: const Duration(milliseconds: 100),
+                      ),
+                    ],
+                    repeatForever: false,
+                    isRepeatingAnimation: false,
+                  )
+                : Text(
+                    msg.msg,
+                    style: Styles.regularUbuntu13(
+                      msg.type == MessageType.bot
+                          ? CustomColors.black
+                          : CustomColors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
           ),
         ),
       ],
