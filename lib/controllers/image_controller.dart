@@ -30,6 +30,8 @@ class ImageController extends GetxController {
       );
       url.value = image.data[0].url.toString();
       status.value = Status.success;
+    } else {
+      MyDialog.getInfo(Strings.provideImageDesc);
     }
   }
 }

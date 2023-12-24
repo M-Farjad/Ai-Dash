@@ -12,6 +12,9 @@ class Strings {
   static const String createImageWithAi = 'Create Image With Ai';
   static const String greetingsMessage = 'Hello! How can I help you today?';
   static const String pleaseWait = 'Please wait...';
+  static const String enterSomeText = 'Please enter some text to chat with me';
+  static const String provideImageDesc =
+      'Please Provide some description to generate image';
   static const String somthingWentWrong =
       'Something Went Wrong (Try again in sometime)';
   static const String greetingsFromApp =

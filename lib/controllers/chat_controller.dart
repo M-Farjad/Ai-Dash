@@ -22,6 +22,8 @@ class ChatController extends GetxController {
       list.removeLast();
       list.add(Message(type: MessageType.bot, msg: answer));
       _scrollToBottom();
+    } else {
+      MyDialog.getInfo(Strings.enterSomeText);
     }
   }
 
