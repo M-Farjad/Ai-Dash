@@ -6,6 +6,8 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:animated_text_kit/animated_text_kit.dart';
 export 'package:dart_openai/dart_openai.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:gallery_saver_updated/gallery_saver.dart';
 
 export 'screens/splash_screen.dart';
 export 'screens/home_screen.dart';
@@ -27,6 +29,7 @@ export 'widgets/custom_loading.dart';
 export 'widgets/custom_appbar.dart';
 export 'widgets/chat_text_field.dart';
 export 'widgets/message_card.dart';
+export 'widgets/custom_button.dart';
 
 export 'utils/prefs.dart';
 export 'utils/api_key.dart';
@@ -35,6 +38,7 @@ export '../utils/custom_dialog.dart';
 
 export 'models/home_type.dart';
 export 'models/message.dart';
+export 'models/onboard.dart';
 
 export 'controllers/chat_controller.dart';
 export 'controllers/image_controller.dart';

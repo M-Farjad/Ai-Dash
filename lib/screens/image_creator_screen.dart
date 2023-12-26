@@ -1,5 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
-
 import '../header.dart';
 
 class ImageCreatorScreen extends StatefulWidget {
@@ -32,6 +30,7 @@ class _ImageCreatorScreenState extends State<ImageCreatorScreen> {
           ),
         Status.loading => const CustomLoading()
       };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +51,16 @@ class _ImageCreatorScreenState extends State<ImageCreatorScreen> {
             height: Get.height * .5,
             alignment: Alignment.center,
             child: Obx(() => _aiImage()),
+          ),
+          Obx(
+            () => _c.status.value == Status.success
+                ? Align(
+                    child: CustomButton(
+                      onPressed: _c.downloadImage,
+                      text: Strings.download,
+                    ),
+                  )
+                : const SizedBox.shrink(),
           )
         ],
       ),

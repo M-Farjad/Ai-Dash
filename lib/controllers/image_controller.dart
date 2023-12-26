@@ -1,3 +1,9 @@
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+
 import '../header.dart';
 
 enum Status { loading, success, none }
@@ -32,6 +38,26 @@ class ImageController extends GetxController {
       status.value = Status.success;
     } else {
       MyDialog.getInfo(Strings.provideImageDesc);
+    }
+  }
+
+  void downloadImage() async {
+    try {
+      MyDialog.showLoading();
+      log(url.value);
+      final bytes = (await http.get(Uri.parse(url.value))).bodyBytes;
+      final dir = await getTemporaryDirectory();
+      final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
+      log('FilePath: ${file.path}');
+      await GallerySaver.saveImage(file.path, albumName: Strings.appName)
+          .then((success) {
+        //?if dialog is open then close it
+        MyDialog.getSuccess(success.toString());
+      });
+    } catch (e) {
+      //?if dialog is open then close it
+      if (Get.isDialogOpen ?? false) Get.back();
+      MyDialog.getWarning(e.toString());
     }
   }
 }

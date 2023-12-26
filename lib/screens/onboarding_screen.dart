@@ -1,5 +1,4 @@
 import '../header.dart';
-import '../models/onboard.dart';
 
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({super.key});
@@ -73,29 +72,14 @@ class OnboardingScreen extends StatelessWidget {
               //! Button
               SizedBox(
                 width: Get.width * 0.8,
-                child: ElevatedButton(
+                child: CustomButton(
+                  text: isLast ? Strings.getStarted : Strings.next,
                   onPressed: () => isLast
                       ? Get.offAllNamed(Routes.home)
                       : _pageController.nextPage(
                           duration: const Duration(milliseconds: 600),
                           curve: Curves.ease,
                         ),
-                  // Get.toNamed(Routes.login);
-                  style: ElevatedButton.styleFrom(
-                    // primary: CustomColors.secondaryColor,
-                    shape: const StadiumBorder(),
-                    elevation: 0,
-                    backgroundColor: CustomColors.primaryColor,
-                    minimumSize: Size(Get.width * .4, 50),
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: Text(
-                    isLast ? Strings.getStarted : Strings.next,
-                    style: Styles.regularUbuntu18(
-                      CustomColors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
                 ),
               ),
               const Spacer(flex: 2),

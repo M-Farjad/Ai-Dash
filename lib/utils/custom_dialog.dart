@@ -34,4 +34,14 @@ class MyDialog {
       snackPosition: SnackPosition.BOTTOM,
     );
   }
+
+  //? Loading Dialog
+  static void showLoading() {
+    Get.dialog(
+      const Center(
+        child: CircularProgressIndicator.adaptive(),
+      ),
+      barrierDismissible: false,
+    );
+  }
 }
