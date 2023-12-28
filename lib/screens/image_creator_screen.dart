@@ -36,6 +36,14 @@ class _ImageCreatorScreenState extends State<ImageCreatorScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(Strings.createImageWithAi),
+        actions: [
+          Obx(() => _c.status.value == Status.success
+              ? IconButton(
+                  onPressed: _c.shareImage,
+                  icon: const Icon(Icons.share_rounded),
+                )
+              : const SizedBox.shrink()),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: BottomTextField(

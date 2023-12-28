@@ -14,6 +14,8 @@ class Strings {
   static const String pleaseWait = 'Please wait...';
   static const String enterSomeText = 'Please enter some text to chat with me';
   static const String download = 'Download';
+  static const String shareImageText =
+      'Check Out this amazing image I created using Ai-Dash App by M.Farjad Waseem';
   static const String provideImageDesc =
       'Please Provide some description to generate image';
   static const String somthingWentWrong =

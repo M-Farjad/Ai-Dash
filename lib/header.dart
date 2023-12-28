@@ -8,6 +8,7 @@ export 'package:animated_text_kit/animated_text_kit.dart';
 export 'package:dart_openai/dart_openai.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:gallery_saver_updated/gallery_saver.dart';
+export 'package:share_plus/share_plus.dart';
 
 export 'screens/splash_screen.dart';
 export 'screens/home_screen.dart';

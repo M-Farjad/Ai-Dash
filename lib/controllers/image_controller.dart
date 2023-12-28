@@ -52,8 +52,27 @@ class ImageController extends GetxController {
       await GallerySaver.saveImage(file.path, albumName: Strings.appName)
           .then((success) {
         //?if dialog is open then close it
+        if (Get.isDialogOpen ?? false) Get.back();
         MyDialog.getSuccess(success.toString());
       });
+    } catch (e) {
+      //?if dialog is open then close it
+      if (Get.isDialogOpen ?? false) Get.back();
+      MyDialog.getWarning(e.toString());
+    }
+  }
+
+  void shareImage() async {
+    try {
+      MyDialog.showLoading();
+      log(url.value);
+      final bytes = (await http.get(Uri.parse(url.value))).bodyBytes;
+      final dir = await getTemporaryDirectory();
+      final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
+      log('FilePath: ${file.path}');
+      await Share.shareXFiles([XFile(file.path)], text: Strings.shareImageText);
+      //?if dialog is open then close it
+      if (Get.isDialogOpen ?? false) Get.back();
     } catch (e) {
       //?if dialog is open then close it
       if (Get.isDialogOpen ?? false) Get.back();
