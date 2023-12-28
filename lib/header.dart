@@ -43,4 +43,6 @@ export 'models/onboard.dart';
 
 export 'controllers/chat_controller.dart';
 export 'controllers/image_controller.dart';
+export '../controllers/translate_controller.dart';
+
 export 'widgets/bottom_text_field.dart';
