@@ -26,17 +26,24 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //! From Language
-              Container(
-                height: 50,
-                width: Get.width * .4,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  border: Border.all(color: CustomColors.primaryColor),
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                ),
-                child: Text(
-                  'Auto',
-                  style: Styles.regularUbuntu12(CustomColors.primaryColor),
+              InkWell(
+                onTap: () =>
+                    Get.bottomSheet(LanguageSheet(controller: _c, s: _c.from)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: Container(
+                  height: 50,
+                  width: Get.width * .4,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: CustomColors.primaryColor),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Obx(
+                    () => Text(
+                      _c.from.isEmpty ? 'Auto' : _c.from.value,
+                      style: Styles.regularUbuntu12(CustomColors.primaryColor),
+                    ),
+                  ),
                 ),
               ),
               IconButton(
@@ -44,17 +51,24 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                 onPressed: () {},
               ),
               //! To Language
-              Container(
-                height: 50,
-                width: Get.width * .4,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  border: Border.all(color: CustomColors.primaryColor),
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                ),
-                child: Text(
-                  'To',
-                  style: Styles.regularUbuntu12(CustomColors.primaryColor),
+              InkWell(
+                onTap: () =>
+                    Get.bottomSheet(LanguageSheet(controller: _c, s: _c.to)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                child: Container(
+                  height: 50,
+                  width: Get.width * .4,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: CustomColors.primaryColor),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Obx(
+                    () => Text(
+                      _c.to.isEmpty ? 'To' : _c.to.value,
+                      style: Styles.regularUbuntu12(CustomColors.primaryColor),
+                    ),
+                  ),
                 ),
               ),
             ],

@@ -13,7 +13,8 @@ class BottomTextField extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: Get.width * .02),
       child: Row(
         children: [
-          ChatTextField(controller: controller),
+          ChatTextField(
+              controller: controller, hint: '${Strings.askMeAnything}...'),
           const SizedBox(width: 8),
           CircleAvatar(
             radius: 24,
