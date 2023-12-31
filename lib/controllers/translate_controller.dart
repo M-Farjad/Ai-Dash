@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import '../header.dart';
 
 class TranslateController extends GetxController {
@@ -6,6 +9,7 @@ class TranslateController extends GetxController {
   final resController = TextEditingController();
   final from = ''.obs;
   final to = ''.obs;
+  final status = Status.none.obs;
 
   // list of languages available
   final lang = const [
@@ -194,13 +198,36 @@ class TranslateController extends GetxController {
   ];
 
   //! methods
-  void sendMessage() async {
-    if (textController.text.trim().isNotEmpty) {
+  void translate() async {
+    if (textController.text.trim().isNotEmpty && to.isNotEmpty) {
+      status.value = Status.loading;
       // !Bot Message
-      // final answer = await APIs.getAnswer(textController.text);
+      String prompt = '';
+      if (from.isNotEmpty) {
+        prompt =
+            'Can You translate given text from ${from.value} to ${to.value}:\n${textController.text}';
+      } else {
+        prompt =
+            'Can you translate the given text to ${to.value}:\n${textController.text}';
+      }
+      log(prompt);
+      final res = await APIs.getAnswer(prompt);
+      resController.text = utf8.decode(res.codeUnits);
+      status.value = Status.success;
       textController.clear();
     } else {
-      MyDialog.getInfo(Strings.enterSomeText);
+      status.value = Status.none;
+      textController.text.trim().isEmpty
+          ? MyDialog.getInfo(Strings.enterSomeText)
+          : MyDialog.getInfo(Strings.enterLanguage);
+    }
+  }
+
+  void swapLanguage() {
+    if (to.trim().isNotEmpty && from.trim().isNotEmpty) {
+      final temp = to.value;
+      to.value = from.value;
+      from.value = temp;
     }
   }
 }

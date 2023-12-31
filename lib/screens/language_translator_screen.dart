@@ -47,8 +47,13 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                 ),
               ),
               IconButton(
-                icon: const Icon(CupertinoIcons.repeat),
-                onPressed: () {},
+                icon: Obx(() => Icon(
+                      CupertinoIcons.repeat,
+                      color: _c.to.isNotEmpty && _c.from.isNotEmpty
+                          ? CustomColors.primaryColor
+                          : CustomColors.grey,
+                    )),
+                onPressed: _c.swapLanguage,
               ),
               //! To Language
               InkWell(
@@ -92,24 +97,32 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
               ),
             ),
           ),
-          if (_c.resController.text.isNotEmpty)
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: Get.width * .04),
-              child: TextFormField(
-                maxLines: null,
-                controller: _c.resController,
-                onTapOutside: (e) => Focus.of(context).unfocus(),
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                ),
-              ),
-            ),
+          if (_c.resController.text.isNotEmpty) Obx(() => _translate()),
           SizedBox(height: Get.height * .02),
-          Align(child: CustomButton(onPressed: () {}, text: Strings.translate))
+          Align(
+            child:
+                CustomButton(onPressed: _c.translate, text: Strings.translate),
+          )
         ],
       ),
     );
   }
+
+  Widget _translate() => switch (_c.status.value) {
+        Status.none => const SizedBox.shrink(),
+        Status.success => Padding(
+            padding: EdgeInsets.symmetric(horizontal: Get.width * .04),
+            child: TextFormField(
+              maxLines: null,
+              controller: _c.resController,
+              onTapOutside: (e) => Focus.of(context).unfocus(),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+              ),
+            ),
+          ),
+        Status.loading => const Align(child: CustomLoading())
+      };
 }

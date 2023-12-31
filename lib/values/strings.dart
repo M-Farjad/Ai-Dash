@@ -13,6 +13,8 @@ class Strings {
   static const String greetingsMessage = 'Hello! How can I help you today?';
   static const String pleaseWait = 'Please wait...';
   static const String enterSomeText = 'Please enter some text to chat with me';
+  static const String enterLanguage =
+      'Please enter the language to translate to';
   static const String download = 'Download';
   static const String translate = 'Translate';
   static const String translateAnythingYouWant =
