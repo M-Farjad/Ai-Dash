@@ -1,28 +1,31 @@
+import 'dart:developer';
+
 import '../header.dart';
 
 class LanguageSheet extends StatelessWidget {
-  LanguageSheet({super.key, required this.controller, required this.s});
-  final TranslateController controller;
+  LanguageSheet({super.key, required this.c, required this.s});
+  final TranslateController c;
   final RxString s;
   final search = ''.obs;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: Get.width * .04),
+      padding: EdgeInsets.only(
+          left: Get.width * .04, right: Get.width * .04, top: Get.height * .02),
       height: Get.height * .5,
-      decoration: const BoxDecoration(
-        color: CustomColors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
         ),
       ),
       child: Column(
         children: [
-          SizedBox(height: Get.height * .02),
           ChatTextField(
-            controller: controller.textController,
+            // controller: c.textController,
+            controller: null,
             hint: Strings.searchLanguage,
             prfIcon: const Icon(
               Icons.translate_rounded,
@@ -35,9 +38,9 @@ class LanguageSheet extends StatelessWidget {
             child: Obx(
               () {
                 final List<String> list = search.isEmpty
-                    ? controller.lang
-                    : controller.lang
-                        .where((e) => e.contains(search.value))
+                    ? c.lang
+                    : c.lang
+                        .where((e) => e.toLowerCase().contains(search.value))
                         .toList();
                 return ListView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -46,6 +49,7 @@ class LanguageSheet extends StatelessWidget {
                   itemBuilder: (ctx, index) => InkWell(
                     onTap: () {
                       s.value = list[index];
+                      log(list[index]);
                       Get.back();
                     },
                     child: Padding(

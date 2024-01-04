@@ -9,7 +9,7 @@ class ChatTextField extends StatelessWidget {
     this.onChanged,
   });
 
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Icon? prfIcon;
   final String hint;
   final void Function(String)? onChanged;

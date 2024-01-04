@@ -27,8 +27,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
             children: [
               //! From Language
               InkWell(
-                onTap: () =>
-                    Get.bottomSheet(LanguageSheet(controller: _c, s: _c.from)),
+                onTap: () => Get.bottomSheet(LanguageSheet(c: _c, s: _c.from)),
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: Container(
                   height: 50,
@@ -57,8 +56,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
               ),
               //! To Language
               InkWell(
-                onTap: () =>
-                    Get.bottomSheet(LanguageSheet(controller: _c, s: _c.to)),
+                onTap: () => Get.bottomSheet(LanguageSheet(c: _c, s: _c.to)),
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: Container(
                   height: 50,
@@ -97,7 +95,12 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
               ),
             ),
           ),
-          if (_c.resController.text.isNotEmpty) Obx(() => _translate()),
+          Obx(() {
+            _c.resController.value;
+            _c.status.value;
+            if (_c.resController.text.isNotEmpty) return _translate();
+            return const SizedBox.shrink();
+          }),
           SizedBox(height: Get.height * .02),
           Align(
             child:
