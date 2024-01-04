@@ -7,7 +7,7 @@ class MyDialog {
     Get.snackbar(
       'Info',
       msg,
-      backgroundColor: CustomColors.primaryColor.withOpacity(.4),
+      backgroundColor: CustomColors.secondaryColor.withOpacity(.4),
       colorText: CustomColors.white,
       snackPosition: SnackPosition.BOTTOM,
     );

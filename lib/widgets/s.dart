@@ -34,7 +34,7 @@
 //             onTapOutside: (e) => FocusScope.of(context).unfocus(),
 //             decoration: const InputDecoration(
 //                 prefixIcon: Icon(Icons.translate_rounded,
-//                     color: CustomColors.primaryColor),
+//                     color: CustomColors.secondaryColor),
 //                 hintText: Strings.searchLanguage,
 //                 hintStyle: TextStyle(fontSize: 14),
 //                 border: OutlineInputBorder(

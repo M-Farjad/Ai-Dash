@@ -21,17 +21,17 @@ class ChatTextField extends StatelessWidget {
         onTapOutside: (event) => FocusScope.of(context).unfocus(),
         textAlign: TextAlign.center,
         style: Styles.regularUbuntu13(
-          CustomColors.primaryColor,
+          Theme.of(context).textColor,
           fontWeight: FontWeight.w500,
         ),
         onChanged: onChanged,
         controller: controller,
         decoration: InputDecoration(
-          fillColor: CustomColors.white,
+          fillColor: Theme.of(context).scaffoldBackgroundColor,
           hintText: hint,
           filled: true,
           hintStyle: Styles.regularUbuntu13(
-            CustomColors.grey,
+            Theme.of(context).textColor,
             fontWeight: FontWeight.w500,
           ),
           prefixIcon: prfIcon,

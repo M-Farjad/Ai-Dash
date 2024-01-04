@@ -29,7 +29,7 @@ class LanguageSheet extends StatelessWidget {
             hint: Strings.searchLanguage,
             prfIcon: const Icon(
               Icons.translate_rounded,
-              color: CustomColors.primaryColor,
+              color: CustomColors.secondaryColor,
             ),
             onChanged: (p0) => search.value = p0.toLowerCase(),
           ),

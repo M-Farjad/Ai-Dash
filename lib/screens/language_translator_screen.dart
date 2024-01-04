@@ -34,13 +34,14 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                   width: Get.width * .4,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    border: Border.all(color: CustomColors.primaryColor),
+                    border: Border.all(color: CustomColors.secondaryColor),
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Obx(
                     () => Text(
                       _c.from.isEmpty ? 'Auto' : _c.from.value,
-                      style: Styles.regularUbuntu12(CustomColors.primaryColor),
+                      style:
+                          Styles.regularUbuntu12(CustomColors.secondaryColor),
                     ),
                   ),
                 ),
@@ -49,7 +50,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                 icon: Obx(() => Icon(
                       CupertinoIcons.repeat,
                       color: _c.to.isNotEmpty && _c.from.isNotEmpty
-                          ? CustomColors.primaryColor
+                          ? CustomColors.secondaryColor
                           : CustomColors.grey,
                     )),
                 onPressed: _c.swapLanguage,
@@ -63,13 +64,14 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                   width: Get.width * .4,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    border: Border.all(color: CustomColors.primaryColor),
+                    border: Border.all(color: CustomColors.secondaryColor),
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Obx(
                     () => Text(
                       _c.to.isEmpty ? 'To' : _c.to.value,
-                      style: Styles.regularUbuntu12(CustomColors.primaryColor),
+                      style:
+                          Styles.regularUbuntu12(CustomColors.secondaryColor),
                     ),
                   ),
                 ),
@@ -87,7 +89,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
               onTapOutside: (e) => Focus.of(context).unfocus(),
               controller: _c.textController,
               decoration: InputDecoration(
-                hintStyle: Styles.regularUbuntu14(CustomColors.primaryColor),
+                hintStyle: Styles.regularUbuntu14(CustomColors.secondaryColor),
                 hintText: Strings.translateAnythingYouWant,
                 border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),

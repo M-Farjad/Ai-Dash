@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
         // primary: CustomColors.secondaryColor,
         shape: const StadiumBorder(),
         elevation: 0,
-        backgroundColor: CustomColors.primaryColor,
+        backgroundColor: Theme.of(context).buttonColor,
         minimumSize: Size(Get.width * .4, 50),
         padding: const EdgeInsets.symmetric(vertical: 16),
       ),

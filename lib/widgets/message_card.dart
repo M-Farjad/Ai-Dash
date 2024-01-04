@@ -24,7 +24,7 @@ class MessageCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: msg.type == MessageType.bot
                   ? CustomColors.grey
-                  : CustomColors.primaryColor,
+                  : CustomColors.secondaryColor,
               borderRadius: const BorderRadius.all(Radius.circular(8)),
             ),
             child: msg.msg.isEmpty || msg.msg == Strings.greetingsMessage
@@ -73,7 +73,7 @@ class MessageCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: msg.type == MessageType.bot
                   ? CustomColors.grey
-                  : CustomColors.primaryColor,
+                  : CustomColors.secondaryColor,
               borderRadius: const BorderRadius.all(Radius.circular(8)),
             ),
             child: Text(

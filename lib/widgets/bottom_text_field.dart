@@ -18,7 +18,7 @@ class BottomTextField extends StatelessWidget {
           const SizedBox(width: 8),
           CircleAvatar(
             radius: 24,
-            backgroundColor: CustomColors.primaryColor,
+            backgroundColor: CustomColors.secondaryColor,
             child: IconButton(
               onPressed: onTap,
               icon: const Icon(

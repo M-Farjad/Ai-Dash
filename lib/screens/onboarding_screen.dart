@@ -37,7 +37,7 @@ class OnboardingScreen extends StatelessWidget {
               Text(
                 list[ind].title,
                 style: Styles.regularMonteAlt28(
-                  CustomColors.primaryColor,
+                  CustomColors.secondaryColor,
                   fontWeight: FontWeight.w900,
                 ),
               ),
@@ -47,7 +47,7 @@ class OnboardingScreen extends StatelessWidget {
                 child: Text(
                   list[ind].subtitle,
                   textAlign: TextAlign.center,
-                  style: Styles.regularUbuntu18(CustomColors.secondaryColor),
+                  style: Styles.regularUbuntu18(CustomColors.primaryColor),
                 ),
               ),
               const Spacer(),
@@ -61,7 +61,7 @@ class OnboardingScreen extends StatelessWidget {
                     height: 10,
                     decoration: BoxDecoration(
                       color: ind == i
-                          ? CustomColors.primaryColor
+                          ? CustomColors.secondaryColor
                           : CustomColors.grey,
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),

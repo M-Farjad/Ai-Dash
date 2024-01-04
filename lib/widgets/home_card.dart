@@ -23,7 +23,7 @@ class HomeCard extends StatelessWidget {
                   Text(
                     homeType.title,
                     style: Styles.regularUbuntu18(
-                      CustomColors.primaryColor,
+                      CustomColors.secondaryColor,
                       fontWeight: FontWeight.w500,
                       letterSpacing: 1,
                     ),
@@ -37,7 +37,7 @@ class HomeCard extends StatelessWidget {
                   Text(
                     homeType.title,
                     style: Styles.regularUbuntu18(
-                      CustomColors.primaryColor,
+                      CustomColors.secondaryColor,
                       fontWeight: FontWeight.w500,
                       letterSpacing: 1,
                     ),

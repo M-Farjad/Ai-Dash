@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(milliseconds: 3300),
       () => Prefs.showOnboarding
           ? Get.offNamed(Routes.onboarding)
           : Get.offNamed(Routes.home),

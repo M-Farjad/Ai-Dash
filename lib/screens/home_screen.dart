@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // padding: const EdgeInsets.only(right: 10),
             icon: const Icon(
               Icons.brightness_4_rounded,
-              color: CustomColors.primaryColor,
+              color: CustomColors.secondaryColor,
             ),
             onPressed: () {},
           ),
