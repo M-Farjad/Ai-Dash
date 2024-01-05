@@ -3,7 +3,7 @@ import '../widgets/home_card.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-  final controller = Get.put(HomeController());
+  final ctrl = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,9 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             // padding: const EdgeInsets.only(right: 10),
             icon: Obx(() => Icon(
-                  controller.isDarkMode.value
-                      ? Icons.light_mode
-                      : Icons.dark_mode,
+                  ctrl.isDarkMode.value ? Icons.light_mode : Icons.dark_mode,
                 )),
-            onPressed: controller.toggleTheme,
+            onPressed: ctrl.toggleTheme,
           ),
         ],
       ),

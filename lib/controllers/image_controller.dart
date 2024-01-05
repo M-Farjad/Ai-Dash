@@ -25,19 +25,24 @@ class ImageController extends GetxController {
   }
 
   void sendMessage() async {
-    if (textController.text.trim().isNotEmpty) {
-      // textController.clear();
-      status.value = Status.loading;
-      OpenAIImageModel image = await OpenAI.instance.image.create(
-        prompt: textController.text,
-        n: 1,
-        size: OpenAIImageSize.size512,
-        responseFormat: OpenAIImageResponseFormat.url,
-      );
-      url.value = image.data[0].url.toString();
-      status.value = Status.success;
-    } else {
-      MyDialog.getInfo(Strings.provideImageDesc);
+    try {
+      if (textController.text.trim().isNotEmpty) {
+        // textController.clear();
+        status.value = Status.loading;
+        OpenAIImageModel image = await OpenAI.instance.image.create(
+          prompt: textController.text,
+          n: 1,
+          size: OpenAIImageSize.size512,
+          responseFormat: OpenAIImageResponseFormat.url,
+        );
+        url.value = image.data[0].url.toString();
+        status.value = Status.success;
+      } else {
+        MyDialog.getInfo(Strings.provideImageDesc);
+      }
+    } catch (e) {
+      log(e.toString());
+      MyDialog.getWarning(Strings.somthingWentWrong);
     }
   }
 

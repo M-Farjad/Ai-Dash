@@ -18,7 +18,7 @@ class Prefs {
     Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
     _box = Hive.box(name: _boxName);
   }
-        
+
   static bool get showOnboarding =>
       _box.get(_showOnboardingPref, defaultValue: true);
   static set showOnboarding(bool value) => _box.put(_showOnboardingPref, value);

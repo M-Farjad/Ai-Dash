@@ -35,7 +35,8 @@ export 'widgets/custom_button.dart';
 export 'utils/prefs.dart';
 export 'utils/api_key.dart';
 export 'utils/apis.dart';
-export '../utils/custom_dialog.dart';
+export 'utils/custom_dialog.dart';
+export 'utils/app_write.dart';
 
 export 'models/home_type.dart';
 export 'models/message.dart';

@@ -199,27 +199,32 @@ class TranslateController extends GetxController {
 
   //! methods
   void translate() async {
-    if (textController.text.trim().isNotEmpty && to.isNotEmpty) {
-      status.value = Status.loading;
-      // !Bot Message
-      String prompt = '';
-      if (from.isNotEmpty) {
-        prompt =
-            'Can You translate given text from ${from.value} to ${to.value}:\n${textController.text}';
+    try {
+      if (textController.text.trim().isNotEmpty && to.isNotEmpty) {
+        status.value = Status.loading;
+        // !Bot Message
+        String prompt = '';
+        if (from.isNotEmpty) {
+          prompt =
+              'Can You translate given text from ${from.value} to ${to.value}:\n${textController.text}';
+        } else {
+          prompt =
+              'Can you translate the given text to ${to.value}:\n${textController.text}';
+        }
+        log(prompt);
+        final res = await APIs.getAnswer(prompt);
+        resController.text = utf8.decode(res.codeUnits);
+        status.value = Status.success;
+        textController.clear();
       } else {
-        prompt =
-            'Can you translate the given text to ${to.value}:\n${textController.text}';
+        status.value = Status.none;
+        textController.text.trim().isEmpty
+            ? MyDialog.getInfo(Strings.enterSomeText)
+            : MyDialog.getInfo(Strings.enterLanguage);
       }
-      log(prompt);
-      final res = await APIs.getAnswer(prompt);
-      resController.text = utf8.decode(res.codeUnits);
-      status.value = Status.success;
-      textController.clear();
-    } else {
-      status.value = Status.none;
-      textController.text.trim().isEmpty
-          ? MyDialog.getInfo(Strings.enterSomeText)
-          : MyDialog.getInfo(Strings.enterLanguage);
+    } catch (e) {
+      log(e.toString());
+      MyDialog.getWarning(Strings.somthingWentWrong);
     }
   }
 
