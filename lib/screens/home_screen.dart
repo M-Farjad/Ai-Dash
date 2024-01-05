@@ -1,20 +1,9 @@
 import '../header.dart';
 import '../widgets/home_card.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    Prefs.showOnboarding = false;
-  }
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
+  final controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +14,12 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             // padding: const EdgeInsets.only(right: 10),
-            icon: const Icon(
-              Icons.brightness_4_rounded,
-              color: CustomColors.secondaryColor,
-            ),
-            onPressed: () {},
+            icon: Obx(() => Icon(
+                  controller.isDarkMode.value
+                      ? Icons.light_mode
+                      : Icons.dark_mode,
+                )),
+            onPressed: controller.toggleTheme,
           ),
         ],
       ),
