@@ -24,6 +24,7 @@ class Strings {
       'Check Out this amazing image I created using Ai-Dash App by M.Farjad Waseem';
   static const String provideImageDesc =
       'Please Provide some description to generate image';
+  static const String noImageFound = 'No Image Found';
   static const String somthingWentWrong =
       'Something Went Wrong (Try again in sometime)';
   static const String greetingsFromApp =

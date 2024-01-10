@@ -48,7 +48,8 @@ class _ImageCreatorScreenState extends State<ImageCreatorScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: BottomTextField(
         controller: _c.textController,
-        onTap: _c.sendMessage,
+        onTap: _c.searchAiImage,
+        // onTap: _c.sendMessage,
       ),
       body: ListView(
         // controller: controller.scrollController,
@@ -57,9 +58,40 @@ class _ImageCreatorScreenState extends State<ImageCreatorScreen> {
         children: [
           Container(
             height: Get.height * .5,
+            margin: EdgeInsets.symmetric(
+                horizontal: Get.width * .01, vertical: Get.height * .01),
             alignment: Alignment.center,
             child: Obx(() => _aiImage()),
           ),
+          Obx(
+            () => (_c.imageList.isEmpty)
+                ? const SizedBox.shrink()
+                : SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Wrap(
+                      spacing: 8,
+                      children: _c.imageList
+                          .map((e) => InkWell(
+                                onTap: () => _c.updateImage(e),
+                                child: ClipRRect(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5)),
+                                  child: CachedNetworkImage(
+                                    imageUrl: e,
+                                    height: 100,
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(
+                                      Icons.error_outline_rounded,
+                                    ),
+                                  ),
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                  ),
+          ),
+          Spacing.getVerticalHeight(.02),
           Obx(
             () => _c.status.value == Status.success
                 ? Align(

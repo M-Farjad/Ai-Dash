@@ -16,6 +16,7 @@ class ImageController extends GetxController {
   final list = <Message>[
     Message(type: MessageType.bot, msg: Strings.greetingsMessage)
   ].obs;
+  final imageList = <String>[].obs;
 
   //! methods
   @override
@@ -84,4 +85,22 @@ class ImageController extends GetxController {
       MyDialog.getWarning(e.toString());
     }
   }
+
+  void searchAiImage() async {
+    if (textController.text.trim().isNotEmpty) {
+      status.value = Status.loading;
+      MyDialog.showLoading();
+      imageList.value = await APIs.searchAiImages(textController.text);
+      if (imageList.isEmpty) {
+        MyDialog.getWarning(Strings.noImageFound);
+      }
+      if (Get.isDialogOpen ?? false) Get.back();
+      url.value = imageList.first;
+      status.value = Status.success;
+    } else {
+      MyDialog.getInfo(Strings.provideImageDesc);
+    }
+  }
+
+  void updateImage(String url) => this.url.value = url;
 }
