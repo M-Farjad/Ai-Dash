@@ -25,6 +25,7 @@ dependencies:
   cached_network_image: ^3.3.0
   gallery_saver_updated: ^3.0.0
   share_plus: ^7.2.1
+  translator_plus: ^1.0.1
 
 dev_dependencies:
   flutter_test:

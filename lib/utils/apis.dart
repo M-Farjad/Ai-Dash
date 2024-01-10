@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:translator_plus/translator_plus.dart';
 
 import '../header.dart';
 
@@ -52,6 +53,21 @@ class APIs {
     } catch (e) {
       log('SearchAiImagesError: $e');
       return [];
+    }
+  }
+
+  static Future<String> googleTranslate(
+      {required String from, required String to, required String text}) async {
+    try {
+      final res = await GoogleTranslator().translate(text, from: from, to: to);
+      // final res = await http.get(Uri.parse(
+      //     'https://translate.google.com/translate_a/t?client=at&sc=1&v=2.0&sl=auto&tl=hi&hl=en&ie=UTF-8&oe=UTF-8&text=hello'));
+      log(res.text);
+      return res.text;
+    } catch (e) {
+      log(e.toString());
+      MyDialog.getWarning(Strings.somthingWentWrong);
+      return Strings.somthingWentWrong;
     }
   }
 }

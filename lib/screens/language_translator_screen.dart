@@ -105,8 +105,11 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
           }),
           SizedBox(height: Get.height * .02),
           Align(
-            child:
-                CustomButton(onPressed: _c.translate, text: Strings.translate),
+            child: CustomButton(
+              onPressed: _c.googleTranslate,
+              // onPressed: _c.translate, //!for ChatGPT
+              text: Strings.translate,
+            ),
           )
         ],
       ),
