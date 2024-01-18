@@ -11,6 +11,12 @@ class ChatController extends GetxController {
   ].obs;
 
   //! methods
+  @override
+  void onInit() {
+    super.onInit();
+    MyDialog.getInfo(Strings.featureNotAvailable);
+  }
+
   void sendMessage() async {
     try {
       if (textController.text.trim().isNotEmpty) {

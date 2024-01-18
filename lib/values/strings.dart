@@ -16,6 +16,8 @@ class Strings {
   static const String enterLanguage =
       'Please enter the language to translate to';
   static const String download = 'Download';
+  static const String featureNotAvailable =
+      'Feature Not Available Yet. Please give good reviews on Play Store to motivate me to add this feature.';
   static const String translate = 'Translate';
   static const String translateAnythingYouWant =
       'Translate anything you want ...';

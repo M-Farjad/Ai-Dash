@@ -3,9 +3,9 @@ import '../header.dart';
 class HomeController extends GetxController {
   final isDarkMode = Prefs.isDarkMode.obs;
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     Prefs.showOnboarding = false;
   }
 
