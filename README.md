@@ -21,30 +21,25 @@ Ai-Dash is a project that leverages AI technologies to create an intelligent cha
 ## Project Screenshots
 
 ### Chatbot Interface
-![Chatbot Interface](./assets/Readme/chatbot.jpeg)
+<img src="./assets/Readme/chatbot.jpeg" alt="Chatbot Interface" width="300"/>
 
 ### Image Generation Feature
-![Image Generation](./assets/Readme/imageCreator.png)
+<img src="./assets/Readme/imageCreator.png" alt="Image Generation" width="300"/>
 
 ### Translation Feature
-![Translation](./assets/Readme/translator.jpeg)
+<img src="./assets/Readme/translator.jpeg" alt="Translation" width="300"/>
 
-### Additional Screenshots
+## Additional Screenshots
+
 Here are more screenshots showcasing the project:
 
-1. **Home Screen**
-   ![Home Screen Dark](./assets/Readme/homeDark.jpeg)
-   ![Home Screen Light](./assets/Readme/home.jpeg)
-
-2. **Onboarding Screen**
-   ![OnBoarding Screen](./assets/Readme/onboard.jpeg)
-
-3. **Language Selection**
-   ![Language Selection](./assets/Readme/language.jpeg)
-
-4. **Splash Screen**
-   ![Splash Screen](./assets/Readme/splash.jpeg)
-
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+   <img src="./assets/Readme/homeDark.jpeg" alt="Home Screen Dark" width="300"/>
+   <img src="./assets/Readme/home.jpeg" alt="Home Screen Light" width="300"/>
+   <img src="./assets/Readme/onboard.jpeg" alt="OnBoarding Screen" width="300"/>
+   <img src="./assets/Readme/language.jpeg" alt="Language Selection" width="300"/>
+   <img src="./assets/Readme/splash.jpeg" alt="Splash Screen" width="300"/>
+</div>
 
 ## GitHub Repository
 [Ai-Dash GitHub Repo](https://github.com/your-username/Ai-Dash)
